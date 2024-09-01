@@ -1,3 +1,4 @@
+/* 
 CREATE TABLE Olympic_Games_of_Paris_2024 (
     ID INT AUTO_INCREMENT PRIMARY KEY,  -- An auto-incrementing unique identifier for each row
     NOC VARCHAR(50),                    -- The National Olympic Committee (NOC) code for the country
@@ -7,6 +8,7 @@ CREATE TABLE Olympic_Games_of_Paris_2024 (
     BronzeMedals INT,                   -- The number of bronze medals won by the country
     TotalMedals INT                     -- The total number of medals (gold + silver + bronze)
 );
+*/
 
 CREATE TABLE Olympic_Games_of_Paris_2024 (
     ID INT AUTO_INCREMENT PRIMARY KEY,
