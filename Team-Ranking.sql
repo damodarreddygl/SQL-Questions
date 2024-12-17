@@ -47,11 +47,28 @@ SELECT * FROM matches;
 |        5 |        30 |         50 |          0 |           1 |
 +----------+-----------+------------+------------+-------------+
 
+Problem Description:
+
+We have two tables:
+1. Teams: Each record in the "teams" table represents a football team, identified by a team_id and a team_name.
+2. Matches: Each record in the "matches" table represents a finished match between two teams, storing details such as host_team, guest_team, and the respective host_goals and guest_goals.
+
+The task is to compute the total points for each team based on the following rules:
+ 
+Win: A team that scores more goals than the other team earns 3 points.
+Draw: If both teams score the same number of goals, each team earns 1 point.
+Loss: A team that scores fewer goals than the opponent earns 0 points.
+
+We need to generate a ranking of all teams, showing their name and the total points they've accumulated from all the matches, ordered by:
+
+1. Total points in descending order.
+2. In case of a tie in points, teams should be ordered by their team_id in ascending order.
+	
 SELECT 
     T.team_id,
     T.team_name,
     COALESCE(SUM (CASE 
-		WHEN M.host_team = T.team_id AND M.host_goals > M.guest_goals THEN 3
+	WHEN M.host_team = T.team_id AND M.host_goals > M.guest_goals THEN 3
         WHEN M.guest_team = T.team_id AND M.guest_goals > M.host_goals THEN 3
         WHEN M.host_team = T.team_id AND M.host_goals = M.guest_goals THEN 1
         WHEN M.guest_team = T.team_id AND M.guest_goals = M.host_goals THEN 1
